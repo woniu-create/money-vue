@@ -23,36 +23,9 @@
              throw new Error('type is unknown')
          }
          this.type=type
-        }
-        mounted(){
-            console.log(this.xxx)
-        }    
+        }  
 
  }
-
-
-
-
-
-    // export default {
-    //   props:['xxx'],
-    //   data(){
-    //     return {
-    //       type:'-',
-    //     }
-    //   },
-    //   mounted(){
-    //     console.log(this.xxx)
-    //   },
-    //   methods:{
-    //     selectType(type){
-    //         if(type!=='-'&&type!=='+'){
-    //             throw new Error('type is unknown')
-    //         }
-    //         this.type=type
-    //     }
-    //   }
-    // }
 </script>
 
 <style lang="scss" scoped>
