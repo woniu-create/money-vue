@@ -64,7 +64,7 @@
       this.output='0'
     }
     ok(){
-     //暂时为空
+     this.$emit('update:value',this.output)   
     }
  }
 </script>
