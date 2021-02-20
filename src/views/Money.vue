@@ -1,6 +1,5 @@
 <template>
     <Layout class-prefix="layout">
-        {{recordList}}
        <NumberPad :value.sync="record.amount" @submit="saveRecord" />
        <!-- <Types :value="record.type" @update:value="onUpdateType"/> -->
         <Types :value.sync="record.type"/>
@@ -16,9 +15,9 @@ import Types from "@/components/Money/Types.vue"
 import Notes from "@/components/Money/Notes.vue"
 import Tags from "@/components/Money/Tags.vue"
 import {Component, Watch} from 'vue-property-decorator'
-import model from '@/model'
+import recordListModel from '@/models/recordListModel'
 
-const recordList= model.fetch();
+const recordList= recordListModel.fetch();
 
 @Component({
 components:{NumberPad,Types,Notes,Tags}
@@ -49,7 +48,7 @@ onUpdateAmount(value: string){
 }
 saveRecord(){
     // const record2: RecordItem=JSON.parse(JSON.stringify(this.record));
-    const record2: RecordItem=model.clone(this.record)
+    const record2: RecordItem=recordListModel.clone(this.record)
     record2.createdAt=new Date();
     this.recordList.push(record2)
 
@@ -59,7 +58,7 @@ saveRecord(){
 }
 @Watch('recordList')
 onRecordListChange(){
-    model.save(this.recordList)
+    recordListModel.save(this.recordList)
 }
 }
 </script>
