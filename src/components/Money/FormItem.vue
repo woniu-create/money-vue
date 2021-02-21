@@ -1,6 +1,6 @@
 <template>
       <div>
-          <label class="notes">
+          <label class="formItem">
             <span class="name">{{this.fieldName}}</span>
             <input type="text" 
             v-model="value"
@@ -14,7 +14,7 @@
   import {Component,Watch,Prop} from 'vue-property-decorator'
 
   @Component
-  export default class Notes extends Vue{
+  export default class FormItem extends Vue{
     value='';
     @Prop({required: true}) fieldName!: string //fieldName! 如不加!,必须要给初始值
     @Prop() placeholder?: string//?表示有可能不存在
@@ -26,7 +26,7 @@
 </script>
 
 <style lang="scss" scoped>
- .notes{
+ .formItem{
      font-size: 14px;
      background: #f5f5f5;
      display: block;
