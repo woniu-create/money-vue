@@ -15,7 +15,8 @@
 
   @Component
   export default class FormItem extends Vue{
-    value='';
+    @Prop({default:''}) value!: string
+
     @Prop({required: true}) fieldName!: string //fieldName! 如不加!,必须要给初始值
     @Prop() placeholder?: string//?表示有可能不存在
     @Watch('value')
