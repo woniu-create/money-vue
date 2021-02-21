@@ -6,12 +6,9 @@
          <Icon name="right"/>
         </router-link>
     </div>
-    <div>
         <div class="createTag-wrapper">
             <Button class="createTag" @click="createTag">新建标签</Button>
         </div>
-        
-    </div>
 </Layout>
 </template>
 <script lang="ts">
@@ -52,15 +49,15 @@ export default class Labels extends Vue{
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid #e6e6e6;
-     }
-     svg{
+        svg{
          width: 18px;
          height: 18px;
          color: #666;
          margin-right: 16px;
      }
+     }
     }
-  .createTag{
+  .createTag{   
     background: #767676;
     color: white;
     border-radius: 4px;
