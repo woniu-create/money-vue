@@ -16,14 +16,16 @@ import Notes from "@/components/Money/Notes.vue"
 import Tags from "@/components/Money/Tags.vue"
 import {Component, Watch} from 'vue-property-decorator'
 import recordListModel from '@/models/recordListModel'
+import tagListMode from '@/models/tagListModel'
 
 const recordList= recordListModel.fetch();
+const tagList=tagListMode.fetch()
 
 @Component({
 components:{NumberPad,Types,Notes,Tags}
 })
 export default class Money extends Vue{
-tags=['衣','食','住','行','打牌'];
+tags=tagList;
  recordList: RecordItem[]=recordList
 record: RecordItem={
     tags:[],notes:'',type: '-',amount:0
