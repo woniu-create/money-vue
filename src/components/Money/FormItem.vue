@@ -5,7 +5,7 @@
             <input type="text" 
             :value="value"
             @input="onChildChanged($event.target.value)"
-            :placeholder="this.placeholder">
+            :placeholder="placeholder">
           </label>
       </div>
 </template>
@@ -20,7 +20,6 @@
 
     @Prop({required: true}) fieldName!: string //fieldName! 如不加!,必须要给初始值
     @Prop() placeholder?: string//?表示有可能不存在
-    @Watch('value')
         onChildChanged(value: string){
          this.$emit('update:value',value)
         }
