@@ -24,6 +24,15 @@ window.createTag = (name: string)=>{
             window.alert('添加成功')
         }
 }
+window.findTag = (id: string)=>{
+  return window.tagList.filter(t=>t.id===id)[0]
+}
+window.updateTag = (id: string,name: string)=>{
+  return tagListModel.update(id,string)
+}
+window.removeTag=(id: string)=>{
+  return tagListModel.remove(id);
+}
 new Vue({
   router,
   store,
