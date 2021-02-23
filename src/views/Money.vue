@@ -55,17 +55,15 @@ onUpdateAmount(value: string){
 }
 saveRecord(){
     // const record2: RecordItem=JSON.parse(JSON.stringify(this.record));
-    const record2: RecordItem=recordListModel.clone(this.record)
-    record2.createdAt=new Date();
-    this.recordList.push(record2)
-
+    recordListModel.create(this.record)
+ 
     // this.recordList.push(this.record)
     // localStorage.setItem('recordList',JSON.stringify(this.recordList))
     console.log(this.recordList)
 }
 @Watch('recordList')
 onRecordListChange(){
-    recordListModel.save(this.recordList)
+    recordListModel.save()
 }
 }
 </script>
