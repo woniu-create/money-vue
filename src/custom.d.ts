@@ -17,12 +17,3 @@ type RecordItem = {
       update: (id: string,name: string) => 'success'|'not found'|'duplicated';
       remove: (id: string) => boolean;
   }
-  interface Window {
-    tagList: Tag[];
-    createTag: (name: string) => void;
-    findTag: (id: string) => Tag | undefined;
-    updateTag: (id: string,name: string) => 'success'|'not found'|'duplicated';
-    removeTag: (id: string) => boolean;
-    recordList: RecordItem[];
-    createRecord: (record: RecordItem) => void;
-  }
