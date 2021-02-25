@@ -1,12 +1,10 @@
 <template>
     <div>
       <ul class="types">
-         <li :class="value==='-' && 'selected'" @click="selectType('-')"> <!--等价于: <li :class="type==='-' ? 'selected' : '' @click="selectType('-') ">支出</li>-->
-             支出
-         </li>
-         <li :class="value==='+' && 'selected'" @click="selectType('+')">收入</li>
-          </ul>
-      </div>
+        <li :class="{[classPrefix+'-item']: classPrefix, selected: value==='+'}" @click="selectType('-')">支出</li>      
+        <li :class="{[classPrefix+'-item']: classPrefix,selected: value==='-'}" @click="selectType('+')">收入</li>
+     </ul>
+     </div>
 </template>
 
 
@@ -17,6 +15,7 @@
  @Component
  export default class Types extends Vue{
     @Prop() readonly value!: string //value!你管我有没有初始值
+    @Prop(String) classPrefix?: string
       selectType(type: string){
          if(type!=='-'&&type!=='+'){
              throw new Error('type is unknown')
