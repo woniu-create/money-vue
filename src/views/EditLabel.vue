@@ -19,7 +19,6 @@ import Vue from 'vue'
 import {Component} from 'vue-property-decorator'
 import FormItem from '@/components/Money/FormItem.vue'
 import Button from '@/components/Button.vue'
-import store from '@/store/index2';
 
 @Component({
     components:{FormItem,Button}
@@ -27,24 +26,27 @@ import store from '@/store/index2';
 export default class EditLabel extends Vue{
   tag?: Tag = undefined;
 created(){
-  this.tag = store.findTag(this.$route.params.id)
+  //TODO
+  // this.tag = store.findTag(this.$route.params.id)
   if(!this.tag){
     this.$router.replace('/404')
   }
 }
   update(name: string){
     if(this.tag){
-      store.updateTag(this.tag.id,name)
+      //TODO
+      // store.updateTag(this.tag.id,name)
     }
   }
   remove(){
-    console.log('hi')
+    
     if(this.tag){
-      if(store.removeTag(this.tag.id)){
-        this.$router.back()
-      }else{
-        window.alert('删除失败')
-      }
+      //TODO
+      // if(store.removeTag(this.tag.id)){
+      //   this.$router.back()
+      // }else{
+      //   window.alert('删除失败')
+      // }
     }
   }
   goBack(){

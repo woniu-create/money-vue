@@ -1,6 +1,5 @@
 <template>
     <Layout class-prefix="layout">
-        {{record}}
        <NumberPad :value.sync="record.amount" @submit="saveRecord" />
        <!-- <Types :value="record.type" @update:value="onUpdateType"/> -->
         <Types :value.sync="record.type"/>
@@ -10,7 +9,6 @@
               @update:value="onUpdateNotes"/>
        </div>
        <Tags/>
-       {{count}} <button @click="add">+1</button>
     </Layout>
 </template>
 
@@ -21,31 +19,25 @@ import Types from "@/components/Money/Types.vue"
 import FormItem from "@/components/Money/FormItem.vue"
 import Tags from "@/components/Money/Tags.vue"
 import {Component} from 'vue-property-decorator'
-import store from '@/store/index2';
 
 
 
 @Component({
 components:{NumberPad,Types,FormItem,Tags},
 computed: {
-  count() {
-    return store.count;
-  },
-  recordList(){
-   return store.recordList;
+recordList(){
+   return this.$store.state.recordList;
   }
 }
 })
 export default class Money extends Vue{
-  add(){
-    store.addCount()
-  }
-
  record: RecordItem={
     tags:[],notes:'',type: '-',amount:0
 }
 
-
+created(){
+  this.$store.commit('fetchRecords')
+}
 onUpdateNotes(value: string){
     // console.log(value);
  this.record.notes = value
@@ -59,7 +51,8 @@ onUpdateAmount(value: string){
   this.record.amount=parseFloat(value)
 }
 saveRecord(){
-   store.createRecord(this.record)
+  //  store.createRecord(this.record)
+  this.$store.commit('createRecord',this.record)
 }
 }
 </script>
