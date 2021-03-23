@@ -20,3 +20,16 @@ new Vue({
   render: h => h(App)
 }).$mount('#app')
 window.onload=function(){setTimeout(function() {window.scrollTo(0, 1000)}, 0)}
+
+if(document.documentElement.clientWidth > 500){
+  window.alert('用手机体验会更好哟')
+  const img = document.createElement('img')
+  img.src = './qrcode.png';
+  img.style.position="fixed";
+  img.style.left = '50%';
+  img.style.top = '50%';
+  img.style.transform = 'translate(-50%,-50%)'
+  img.style.boxShadow = '0 0 10px rgba(0,0,0,0.25)';
+  document.body.appendChild(img)
+}
+
