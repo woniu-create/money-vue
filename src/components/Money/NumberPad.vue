@@ -12,7 +12,7 @@
               <button @click="clear">清空</button>
               <button @click="inputContent">7</button>
               <button @click="inputContent">8</button>
-              <button @click="inputContent">9 </button>
+              <button @click="inputContent">9</button>
               <button class="ok" @click="ok">OK</button>
               <button class="zero" @click="inputContent">0</button>
               <button @click="inputContent">.</button>
